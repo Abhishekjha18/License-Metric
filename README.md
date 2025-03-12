@@ -20,7 +20,7 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **STEVAL-MKBOXPRO Board:** Ensure you have the STEVAL-MKBOXPRO microcontroller board.
 
-- **Mobile Device:** A smartphone or tablet with the ST-BLE and ST AIOT CRAFT app installed.
+- **Mobile Device:** A smartphone or tablet with the ST AIOT CRAFT app installed.
 
 - **Internet Access:** For connecting to the ST AIOT craft website.
 

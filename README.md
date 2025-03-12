@@ -2,6 +2,8 @@
 
 An AI-enabled device that assesses driving performance in real-time using accelerometer and gyroscopic data. Built on the STEVAL-MKBOXPRO microcontroller, it provides objective feedback to drivers, aiding in skill improvement and promoting road safety.
 
+##REPORT FILE : [LINK](https://drive.google.com/file/d/1z8Qwkeeu7Xr-fuZy8guTI9-ZzyfS8G6w/view?usp=sharing)
+
 ## Features
 
 - **Real-Time Monitoring:** Continuously tracks acceleration and angular velocity to detect driving behaviors.
@@ -53,9 +55,9 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 ##  Usage of Custom Website File
 
--  **Custom Website Dry Run Link:** [LINK](https://drive.google.com/file/d/18rpwOY8ZAjs-xekbkwIap_OBWk-Ns2Hd/view?usp=drive_link)
+-  **Custom Website Dry Run Link:** [LINK](https://drive.google.com/file/d/18rpwOY8ZAjs-xekbkwIap_OBWk-Ns2Hd/view?usp=sharing)
 
-- **Custom Website CODE Link:**     [LINK](https://drive.google.com/file/d/12tkjrmBdqMAx382L-aopZnIW9H6L-7Rs/view?usp=drive_link)
+- **Custom Website CODE Link:**     [LINK](https://drive.google.com/file/d/12tkjrmBdqMAx382L-aopZnIW9H6L-7Rs/view?usp=sharing)
 
 
 
@@ -74,6 +76,9 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 
 ## Drive Link For Other Files : [LINK](https://drive.google.com/drive/folders/1tmsuelJD-A1GvjUY1LsMuJc_rQaAfbyA?usp=drive_link)
+
+
+
 
 
 

@@ -48,14 +48,14 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **Review Results:** After the session, review detailed performance metrics and recommendations on the applications.
 
--**Demo Video:** This contains the steps and demo of the Project. [video link]()
+- **Demo Video:** This contains the steps and demo of the Project. [video link](https://drive.google.com/drive/folders/1mMX2dlaLDTzLH-lAovJhhp0EJsUk6pEF?usp=drive_link)
 
 
-## Usage of Custom Website File
+##  Usage of Custom Website File
 
 -  **Custom Website Dry Run Link:** [LINK](https://drive.google.com/file/d/18rpwOY8ZAjs-xekbkwIap_OBWk-Ns2Hd/view?usp=drive_link)
 
-- **Custom Website CODE Link:** [LINK](https://drive.google.com/file/d/12tkjrmBdqMAx382L-aopZnIW9H6L-7Rs/view?usp=drive_link)
+- **Custom Website CODE Link:**     [LINK](https://drive.google.com/file/d/12tkjrmBdqMAx382L-aopZnIW9H6L-7Rs/view?usp=drive_link)
 
 
 
@@ -71,6 +71,10 @@ An AI-enabled device that assesses driving performance in real-time using accele
 ## DIFFERENT Datasets FROM ST-AIOT-CRAFT WEBSITE
 
 -Majorly TWO DATASETS were used named as Alpha_dataset and Alpha_Beta_Dataset respective to the mlc model files.
+
+
+## Drive Link For Other Files : [LINK](https://drive.google.com/drive/folders/1tmsuelJD-A1GvjUY1LsMuJc_rQaAfbyA?usp=drive_link)
+
 
 
 

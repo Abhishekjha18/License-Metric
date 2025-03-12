@@ -46,30 +46,5 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **Monitor Performance:** During the drive, the system analyzes data and provides real-time feedback.
 
-- **Review Results:** After the session, review detailed performance metrics and recommendations on the app or website.
+- **Review Results:** After the session, review detailed performance metrics and recommendations on the website.
 
-## Contributing
-
-We welcome contributions to enhance the Smart Driver Evaluation System. To contribute:
-
-1. **Fork the Repository:** Click the 'Fork' button at the top right corner of this page.
-
-2. **Clone the Fork:** Use `git clone` to copy the forked repository to your local machine.
-
-3. **Create a Branch:** Develop your feature or fix in a new branch.
-
-4. **Submit a Pull Request:** Push your changes and submit a pull request to the main repository.
-
-Please ensure your contributions align with our coding standards and include appropriate tests.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Acknowledgements
-
-We thank all contributors and users who have supported the development of the Smart Driver Evaluation System.
-
----
-
-*Note: This README is a template and may need adjustments to fit your project's specifics.* 

@@ -2,7 +2,7 @@
 
 An AI-enabled device that assesses driving performance in real-time using accelerometer and gyroscopic data. Built on the STEVAL-MKBOXPRO microcontroller, it provides objective feedback to drivers, aiding in skill improvement and promoting road safety.
 
-## REPORT FILE : [LINK](https://drive.google.com/file/d/1z8Qwkeeu7Xr-fuZy8guTI9-ZzyfS8G6w/view?usp=sharing)
+## REPORT FILE : [LINK](https://docs.google.com/document/d/1naPfUTfguUxUR_f5OGCVoo8RjADD_p3180a-_BfYthU/edit?usp=sharing)
 
 ## Features
 
@@ -71,7 +71,7 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **ALPHA MODEL:** It was giving an accuracy of 75.36%...PLEASE REFER TO THE FILE NAMED default_mlc_alpha to access the mlc.jason and header file of this model.
   
-- **ALPHA-BETA MODEL:** It was giving an accuracy of 99.83% to 100%...PLEASE REFER TO THE FILE NAMED alpha_beta_Final to access the mlc.jason and header file of this model.
+- **ALPHA-BETA MODEL:** It was giving an accuracy of 99.83% to 100%...PLEASE REFER TO THE FILE NAMED alpha_beta_bestt to access the mlc.jason and header file of this model.
 
 - **OTHER MODEL FILES:** They were giving an accuracy between 78% to 85%....Files are there in the github repo, they contain the header and mcl.jason files of each model.
 

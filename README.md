@@ -45,6 +45,8 @@ An AI-enabled device that assesses driving performance in real-time using accele
    - Flash the FP_SNS_DATALOG2 on the board if not already done.
 
    - Access the ST AIOT craft website for additional features and data analysis.
+  
+   - Another way to run a project is , upload the mlc.jason of the project on deta_log window , and start logging the data, it will show you real time input as well as ouput of the mlc and it will store all this data in laptop/sd card as required.
 
 ### Usage of STAIOT DEMO
 
@@ -71,9 +73,9 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **ALPHA MODEL:** It was giving an accuracy of 75.36%...PLEASE REFER TO THE FILE NAMED default_mlc_alpha to access the mlc.jason and header file of this model.
   
-- **ALPHA-BETA MODEL:** It was giving an accuracy of 99.83% to 100%...PLEASE REFER TO THE FILE NAMED alpha_beta_bestt to access the mlc.jason and header file of this model.
+- **ALPHA-BETA MODEL:** It was giving an accuracy of 99.83% to 100%...PLEASE REFER TO THE FILE NAMED alpha_beta_100_mlc to access the mlc.jason and header file of this model.
 
-- **OTHER MODEL FILES:** They were giving an accuracy between 78% to 85%....Files are there in the github repo, they contain the header and mcl.jason files of each model.
+- **OTHER MODEL FILES:** They were giving an accuracy between 78% to 90%....Files are there in the github repo, they contain the header and mcl.jason files of each model.
 
 
 ## DIFFERENT Datasets FROM ST-AIOT-CRAFT WEBSITE
@@ -83,6 +85,15 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 ## Drive Link For Other Files : [LINK](https://drive.google.com/drive/folders/1tmsuelJD-A1GvjUY1LsMuJc_rQaAfbyA?usp=drive_link)
 
+## BEST RESULTS
+- The mlc named alpha_beta_100_mlc.zip, trained on the data alpha_beta_dataset_copy.zip gives an accuracy of more than 99.5 percent.
+
+- YOU CAN ACCESS THE ABOVE MLC AND DATASET FROM UPLOADED FILES IN THIS REPO OR FROM DRIVE ALSO.
+
+
+
+## FUTURE WORK YET TO BE DONE
+- Better UI to be designed for custom website
 
 
 

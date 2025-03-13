@@ -26,6 +26,8 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **Internet Access:** For connecting to the ST AIOT craft website.
 
+- **Firmare On Board:** Make Sure to use correct and compatible firmware for both website and application (We used the FP_SNS_DATALOG2 Firmware) 
+
 ### Installation
 
 1. **Hardware Setup:**
@@ -39,6 +41,8 @@ An AI-enabled device that assesses driving performance in real-time using accele
    - Download and install the ST-BLE and ST AIOT CRAFT app from your device's app store.
 
    - Pair the app with the STEVAL-MKBOXPRO via Bluetooth.
+  
+   - Flash the FP_SNS_DATALOG2 on the board if not already done.
 
    - Access the ST AIOT craft website for additional features and data analysis.
 
@@ -48,12 +52,14 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **Monitor Performance:** During the drive, the system analyzes data and provides real-time feedback.
 
-- **Review Results:** After the session, review detailed performance metrics and recommendations on the applications.
+- **Review Results:** After the session, review detailed performance metrics and recommendations on the applications, the results will be stored in .dat format in SD card of box.
 
 - **Demo Video:** This contains the steps and demo of the Project. [video link](https://drive.google.com/drive/folders/1mMX2dlaLDTzLH-lAovJhhp0EJsUk6pEF?usp=drive_link)
 
 
 ##  Usage of Custom Website File
+
+- **Custom Website is developed for better and engaging UI and some more features**
 
 -  **Custom Website Dry Run Link:** [LINK](https://drive.google.com/file/d/18rpwOY8ZAjs-xekbkwIap_OBWk-Ns2Hd/view?usp=sharing)
 
@@ -65,7 +71,7 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 - **ALPHA MODEL:** It was giving an accuracy of 75.36%...PLEASE REFER TO THE FILE NAMED default_mlc_alpha to access the mlc.jason and header file of this model.
   
-- **ALPHA-BETA MODEL:** It was giving an accuracy of 90.83%...PLEASE REFER TO THE FILE NAMED alpha_beta_Final to access the mlc.jason and header file of this model.
+- **ALPHA-BETA MODEL:** It was giving an accuracy of 99.83% to 100%...PLEASE REFER TO THE FILE NAMED alpha_beta_Final to access the mlc.jason and header file of this model.
 
 - **OTHER MODEL FILES:** They were giving an accuracy between 78% to 85%....Files are there in the github repo, they contain the header and mcl.jason files of each model.
 

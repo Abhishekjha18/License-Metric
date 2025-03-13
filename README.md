@@ -4,6 +4,9 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 ## REPORT FILE : [LINK](https://docs.google.com/document/d/1naPfUTfguUxUR_f5OGCVoo8RjADD_p3180a-_BfYthU/edit?usp=sharing)
 
+![License Metric Block Diagram](https://github.com/user-attachments/assets/74b2a78c-3378-4619-9593-f8ee45b92e18)
+
+
 ## Features
 
 - **Real-Time Monitoring:** Continuously tracks acceleration and angular velocity to detect driving behaviors.

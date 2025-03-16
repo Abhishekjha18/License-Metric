@@ -1,23 +1,24 @@
-// src/pages/LoginPage.tsx
+// src/pages/RegisterPage.tsx
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
 
-const LoginPage: React.FC = () => {
+const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      // On success, navigate to dashboard
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // Optionally update profile with name here using updateProfile()
       navigate('/dashboard');
     } catch (error: any) {
-      console.error('Login Error:', error.message);
+      console.error('Registration Error:', error.message);
       alert(error.message);
     }
   };
@@ -38,8 +39,17 @@ const LoginPage: React.FC = () => {
         </Col>
         <Col md={6} className="d-flex flex-column justify-content-center align-items-center">
           <div style={{ maxWidth: '400px', width: '100%' }}>
-            <h2 className="mb-4">Log In</h2>
-            <Form onSubmit={handleLogin}>
+            <h2 className="mb-4">Register</h2>
+            <Form onSubmit={handleRegister}>
+              <Form.Group controlId="formName" className="mb-3">
+                <Form.Label>Full Name</Form.Label>
+                <Form.Control 
+                  type="text" 
+                  placeholder="Enter your full name" 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Form.Group>
               <Form.Group controlId="formEmail" className="mb-3">
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control 
@@ -50,24 +60,21 @@ const LoginPage: React.FC = () => {
                 />
               </Form.Group>
               <Form.Group controlId="formPassword" className="mb-3">
-                <div className="d-flex justify-content-between">
-                  <Form.Label>Password</Form.Label>
-                  <Link to="#">Forgot?</Link>
-                </div>
+                <Form.Label>Password</Form.Label>
                 <Form.Control 
                   type="password" 
-                  placeholder="Enter your password" 
+                  placeholder="Enter a password" 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
               <Button variant="primary" type="submit" className="w-100 mb-3">
-                LOG IN
+                REGISTER
               </Button>
             </Form>
             <div className="text-center">
-              <span className="text-muted">Don’t have an account?</span>{' '}
-              <Link to="/register">Create one now</Link>
+              <span className="text-muted">Already have an account?</span>{' '}
+              <Link to="/login">Log In</Link>
             </div>
           </div>
         </Col>
@@ -76,4 +83,4 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

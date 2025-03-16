@@ -1,1 +1,5 @@
 webserver\frontend\node_modules
+.idx
+webserver/backend/node_modules
+webserver/backend/serviceAccountKey.json
+webserver/frontend/src/firebase.ts

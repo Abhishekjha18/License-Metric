@@ -1,0 +1,194 @@
+/* styles.css - Add this to your global styles or create a new component-specific CSS file */
+
+/* General Auth Styles */
+.login-container, .register-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Left Panel Styling */
+.left-panel {
+  background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.left-panel-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.left-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/path/to/pattern.svg');
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.hero-image {
+  position: relative;
+  margin: 2rem 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.testimonial-section {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.testimonial {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-author {
+  font-weight: bold;
+}
+
+.features-list {
+  text-align: left;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.feature-icon {
+  margin-right: 0.5rem;
+  color: #4EEBC5;
+}
+
+/* Right Panel Styling */
+.right-panel {
+  padding: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  border: none;
+  border-radius: 15px;
+}
+
+.auth-title {
+  font-weight: 700;
+  color: #333;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #6c757d;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.separator span {
+  padding: 0 10px;
+}
+
+/* Form Controls */
+.form-control-lg {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.form-control-lg:focus {
+  box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+  border-color: #4e73df;
+}
+
+.btn-primary {
+  background-color: #4e73df;
+  border-color: #4e73df;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #3a5ccc;
+  border-color: #3a5ccc;
+}
+
+.google-btn {
+  background-color: white;
+  border: 1px solid #ced4da;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #4e73df;
+}
+
+/* Password field styling */
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6c757d;
+  padding: 0;
+}
+
+.password-toggle:hover,
+.password-toggle:focus {
+  color: #4e73df;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .auth-card {
+    box-shadow: none !important;
+  }
+  
+  .right-panel {
+    padding: 1rem;
+  }
+}
+
+/* Logo Component */
+.brand-logo {
+  margin-bottom: 1rem;
+}
+
+.brand-name {
+  font-weight: 800;
+  color: #4e73df;
+  margin-bottom: 2rem;
+}

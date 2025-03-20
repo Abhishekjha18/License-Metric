@@ -1,0 +1,3 @@
+webserver/backend/.env
+webserver/backend/node_modules
+webserver/frontend/node_modules

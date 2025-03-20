@@ -1,15 +1,16 @@
-import { Request, Response } from 'express';
-import { auth } from '../config/firebase';
+import { Response } from 'express';
+import admin from 'firebase-admin';
+import { AuthRequest } from '../middleware/auth';
 
 /**
  * Get the current user's profile
  */
-export const getUserProfile = async (req: Request, res: Response) => {
+export const getUserProfile = async (req: AuthRequest, res: Response) => {
   try {
     if (!req.user) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
-    const user = await auth.getUser(req.user.uid);
+    const user = await admin.auth().getUser(req.user.uid);
     res.json(user);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch user profile' });
@@ -19,9 +20,12 @@ export const getUserProfile = async (req: Request, res: Response) => {
 /**
  * Update user profile information
  */
-export const updateUserProfile = async (req: Request, res: Response) => {
+export const updateUserProfile = async (req: AuthRequest, res: Response) => {
   try {
-    await auth.updateUser(req.user.uid, req.body);
+    if (!req.user) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    await admin.auth().updateUser(req.user.uid, req.body);
     res.json({ message: 'Profile updated successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to update profile' });
@@ -31,9 +35,12 @@ export const updateUserProfile = async (req: Request, res: Response) => {
 /**
  * Update user email
  */
-export const updateUserEmail = async (req: Request, res: Response) => {
+export const updateUserEmail = async (req: AuthRequest, res: Response) => {
   try {
-    await auth.updateUser(req.user.uid, { email: req.body.email });
+    if (!req.user) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    await admin.auth().updateUser(req.user.uid, { email: req.body.email });
     res.json({ message: 'Email updated successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to update email' });
@@ -43,9 +50,12 @@ export const updateUserEmail = async (req: Request, res: Response) => {
 /**
  * Send email verification link
  */
-export const sendVerificationEmail = async (req: Request, res: Response) => {
+export const sendVerificationEmail = async (req: AuthRequest, res: Response) => {
   try {
-    const user = await auth.getUser(req.user.uid);
+    if (!req.user) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    const user = await admin.auth().getUser(req.user.uid);
     // Implementation depends on your email service
     res.json({ message: 'Verification email sent' });
   } catch (error) {
@@ -56,9 +66,12 @@ export const sendVerificationEmail = async (req: Request, res: Response) => {
 /**
  * Delete user account
  */
-export const deleteUserAccount = async (req: Request, res: Response) => {
+export const deleteUserAccount = async (req: AuthRequest, res: Response) => {
   try {
-    await auth.deleteUser(req.user.uid);
+    if (!req.user) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    await admin.auth().deleteUser(req.user.uid);
     res.json({ message: 'Account deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete account' });

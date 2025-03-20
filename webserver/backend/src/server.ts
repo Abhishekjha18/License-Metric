@@ -32,12 +32,23 @@ const logger = winston.createLogger({
 
 // Create Express app
 const app = express();
-const port = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://angadjeet22071:HEfzGEXbEuFZjhbI@cluster0.fvbex.mongodb.net/';
+const port = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://angadjeet22071:HEfzGEXbEuFZjhbI@cluster0.fvbex.mongodb.net/'
+// Configure CORS options
+const corsOptions = {
+  origin: '*', // Allow requests from any origin (adjust for production)
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
 
 // Middleware
-app.use(helmet()); // Security headers
-app.use(cors());
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  contentSecurityPolicy: false
+}));
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev')); // HTTP request logger
@@ -52,31 +63,32 @@ mongoose.connect(MONGO_URI)
     process.exit(1);
   });
 
-// Setup global request logger
+// Global request logger
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`, {
     ip: req.ip,
-    headers: req.headers['user-agent']
+    userAgent: req.headers['user-agent']
   });
   next();
 });
 
-
-
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store');
+  next();
+});
 // API Routes
 app.use('/api', routes);
 app.use('/api/drive-sessions', driveSessionRoutes);
+
 // Root route
 app.get('/', (req, res) => {
   res.send('Driver Analytics API is running');
 });
 
-
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'Server is running' });
 });
-
 
 // Error handling middleware
 app.use(errorHandler);

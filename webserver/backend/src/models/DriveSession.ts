@@ -53,7 +53,7 @@ const DriveSessionSchema: Schema = new Schema({
   dayOfWeek: { 
     type: String, 
     enum: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
-    default: () => new Date().toLocaleLowerCase('en-US', { weekday: 'long' }),
+    default: () => new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase(),
     required: true 
   },
   weatherCondition: { 

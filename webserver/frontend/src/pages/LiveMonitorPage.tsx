@@ -320,11 +320,11 @@ const LiveMonitorPage: React.FC = () => {
         // Update current session with summary
         setCurrentSession(prev => {
           if (prev) {
-            return {
+            const updatedSession = {
               ...prev,
               endTime: new Date(),
               predictions: [...predictions],
-              safetyScore: timeout ? Math.max(0, safetyScore - 15) : safetyScore, // Penalty for timeout
+              safetyScore: timeout ? Math.max(0, safetyScore - 15) : safetyScore,
               completed: !timeout,
               timedOut: timeout,
               summary: {
@@ -336,6 +336,11 @@ const LiveMonitorPage: React.FC = () => {
                 longestSafeStreak: currentMaxStreakRef.current
               }
             };
+  
+            // Save to database
+            saveSessionToDb(updatedSession);
+            
+            return updatedSession;
           }
           return null;
         });
@@ -672,7 +677,76 @@ Thank you for using our driving analysis system!
       title: { display: true, text: 'Risk Distribution' }
     }
   };
+// Add this function inside the LiveMonitorPage component, before the return statement
+const saveSessionToDb = async (session: DriveSession | null) => {
+  if (!session) return;
 
+  try {
+    // Get actual time components from session start time
+    const startDate = session.startTime;
+    const hours = startDate.getHours();
+    const dayOfWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'][startDate.getDay()];
+    
+    // Generate realistic placeholder values
+    const sessionData = {
+      email: userEmail || 'demo@example.com',
+      distance: Math.random() * 50 + 5, // Random distance between 5-55 miles
+      duration: session.endTime 
+        ? (session.endTime.getTime() - session.startTime.getTime()) / 1000 
+        : 0,
+      fuelUsed: Math.random() * 5 + 3, // Random fuel between 3-8 gallons
+      startLocation: 'Current Location', 
+      endLocation: 'Destination',
+      date: startDate,
+      reportSent: false, // Should be based on actual report sending
+      drivingEvents: {
+        hardBraking: session.summary.highRiskCount,
+        rapidAcceleration: session.summary.mediumRiskCount, // Assuming medium risk counts as rapid acceleration
+        laneChanges: Math.floor(Math.random() * 20) // Random lane changes between 0-19
+      },
+      routeType: {
+        city: 40, // Example percentage
+        highway: 60, // Example percentage
+        longTrip: session.summary.longestSafeStreak > 30 // If safe streak > 30min, consider it long trip
+      },
+      timeOfDay: hours >= 5 && hours < 12 ? 'morning' :
+                 hours >= 12 && hours < 17 ? 'afternoon' :
+                 hours >= 17 && hours < 21 ? 'evening' : 'night',
+      dayOfWeek: dayOfWeek,
+      weatherCondition: ['clear', 'cloudy', 'rain', 'snow'][Math.floor(Math.random() * 4)], // Random weather
+      safetyScore: session.safetyScore,
+      riskSummary: {
+        low: session.summary.lowRiskCount,
+        medium: session.summary.mediumRiskCount,
+        high: session.summary.highRiskCount
+      }
+    };
+
+    const response = await fetch('/api/drive-sessions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+      },
+      body: JSON.stringify(sessionData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to save session');
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Save error:', error);
+    showNotification(
+      'Save Failed', 
+      error instanceof Error ? error.message : 'Failed to save drive session',
+      'danger'
+    );
+    throw error;
+  }
+};
   return (
     <>
     <Sidebar />
@@ -975,17 +1049,6 @@ Thank you for using our driving analysis system!
               
               <div className="mb-4">
                 <h5>Get Your Detailed Report</h5>
-                <p>Enter your email to receive a detailed analysis of your driving patterns:</p>
-                <Form>
-                  <Form.Group className="mb-3">
-                    <Form.Control 
-                      type="email" 
-                      placeholder="your@email.com" 
-                      value={userEmail}
-                      onChange={(e) => setUserEmail(e.target.value)}
-                    />
-                  </Form.Group>
-                </Form>
               </div>
             </>
           )}

@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import { body } from 'express-validator';
 import { authMiddleware } from '../middleware/auth';
 import { 
@@ -12,10 +12,10 @@ import {
 const router = express.Router();
 
 // Apply auth middleware to all routes
-router.use(authMiddleware);
+router.use(authMiddleware as RequestHandler);
 
 // Get current user profile
-router.get('/me', getUserProfile);
+router.get('/me', getUserProfile as RequestHandler);
 
 // Update user profile
 router.put(
@@ -24,7 +24,7 @@ router.put(
     body('displayName').optional().isString().trim().isLength({ min: 2, max: 50 }),
     body('photoURL').optional().isURL()
   ],
-  updateUserProfile
+  updateUserProfile as RequestHandler
 );
 
 // Change email
@@ -33,13 +33,13 @@ router.put(
   [
     body('email').isEmail().withMessage('Must be a valid email address')
   ],
-  updateUserEmail
+  updateUserEmail as RequestHandler
 );
 
 // Request email verification
-router.post('/verify-email', sendVerificationEmail);
+router.post('/verify-email', sendVerificationEmail as RequestHandler);
 
 // Delete account
-router.delete('/me', deleteUserAccount);
+router.delete('/me', deleteUserAccount as RequestHandler);
 
 export default router;

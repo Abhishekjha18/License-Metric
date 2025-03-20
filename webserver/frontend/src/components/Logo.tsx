@@ -38,7 +38,7 @@ const Logo: React.FC<LogoProps> = ({ size = 'medium' }) => {
           fontSize: dimensions.fontSize
         }}
       >
-        DA
+        LM
       </div>
     </div>
   );

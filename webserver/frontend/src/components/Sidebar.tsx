@@ -47,7 +47,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onToggleCollapse }) => {
           <div>
             <h4 className="text-white m-0">
               <i className="bi bi-car-front me-2"></i>
-              License Metrics
+              License Metric
             </h4>
             <p className="small text-light mb-0">Real-time Driving Feedback System</p>
           </div>

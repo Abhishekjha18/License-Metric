@@ -85,7 +85,7 @@ const LoginPage: React.FC = () => {
         >
           <div className="left-panel-content text-center">
             <Logo size="large" />
-            <h1 className="mb-3 fw-bold">DRIVE ANALYTICS</h1>
+            <h1 className="mb-3 fw-bold">LICENSE METRIC</h1>
             <p className="mb-5" style={{ maxWidth: '400px' }}>
               Improve your driving performance with our AI-powered analytics platform. Get real-time feedback and actionable insights.
             </p>

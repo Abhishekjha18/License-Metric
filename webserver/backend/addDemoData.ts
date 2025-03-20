@@ -1,79 +1,6 @@
-// src/models/DriveSession.ts
-import mongoose, { Schema, Document } from 'mongoose';
 import dotenv from 'dotenv';
-import { DriveSession } from './src/models/DriveSession';
-
-export interface IDriveSession extends Document {
-  email: string;
-  distance: number;
-  duration: number;
-  fuelUsed: number;
-  startLocation: string;
-  endLocation: string;
-  date: Date;
-  reportSent: boolean;
-  drivingEvents: {
-    hardBraking: number;
-    rapidAcceleration: number;
-    laneChanges: number;
-  };
-  routeType: {
-    city: number; // percentage of city driving (0-100)
-    highway: number; // percentage of highway driving (0-100)
-    longTrip: boolean;
-  };
-  timeOfDay: string; // morning, afternoon, evening, night
-  dayOfWeek: string; // monday, tuesday, etc.
-  weatherCondition: string; // clear, rain, snow, etc.
-}
-
-const DriveSessionSchema: Schema = new Schema({
-  email: { type: String, required: true, index: true },
-  distance: { type: Number, required: true, default: 0 }, // in miles
-  duration: { type: Number, required: true, default: 0 }, // in minutes
-  fuelUsed: { type: Number, required: true, default: 0 }, // in gallons
-  startLocation: { type: String, required: true, default: 'Unknown' },
-  endLocation: { type: String, required: true, default: 'Unknown' },
-  date: { type: Date, required: true, default: Date.now },
-  reportSent: { type: Boolean, default: false },
-  drivingEvents: {
-    hardBraking: { type: Number, default: 0 },
-    rapidAcceleration: { type: Number, default: 0 },
-    laneChanges: { type: Number, default: 0 }
-  },
-  routeType: {
-    city: { type: Number, default: 50 }, // percentage
-    highway: { type: Number, default: 50 }, // percentage
-    longTrip: { type: Boolean, default: false }
-  },
-  timeOfDay: { 
-    type: String, 
-    enum: ['morning', 'afternoon', 'evening', 'night'],
-    default: 'afternoon',
-    required: true 
-  },
-  dayOfWeek: { 
-    type: String, 
-    enum: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
-    default: () => new Date().toLocaleLowerCase('en-US', { weekday: 'long' }),
-    required: true 
-  },
-  weatherCondition: { 
-    type: String, 
-    enum: ['clear', 'cloudy', 'rain', 'snow', 'fog'],
-    default: 'clear',
-    required: true 
-  }
-}, { 
-  timestamps: true,
-  // Add this to make empty/undefined properties default to the schema defaults
-  // instead of failing validation
-  minimize: false
-});
-
-// Create model only if it doesn't already exist
-export const DriveSession = mongoose.models.DriveSession || 
-  mongoose.model<IDriveSession>('DriveSession', DriveSessionSchema);
+import mongoose from 'mongoose';
+import { DriveSession as DriveSess } from './src/models/DriveSession';
 
 // Load environment variables
 dotenv.config();
@@ -89,7 +16,7 @@ const addDemoData = async () => {
     console.log('Connected to MongoDB successfully');
 
     // Check if we already have demo data
-    const existingDemoSessions = await DriveSession.countDocuments({ email: 'demo@example.com' });
+    const existingDemoSessions = await DriveSess.countDocuments({ email: 'demo@example.com' });
     if (existingDemoSessions > 0) {
       console.log(`Found ${existingDemoSessions} existing demo sessions, skipping creation`);
       return;
@@ -133,7 +60,7 @@ const addDemoData = async () => {
       const startLocation = locations[Math.floor(Math.random() * locations.length)];
       const endLocation = locations[Math.floor(Math.random() * locations.length)];
       
-      const session = new DriveSession({
+      const session = new DriveSess({
         email: 'demo@example.com',
         distance,
         duration,
@@ -186,7 +113,7 @@ const addDemoData = async () => {
       const startLocation = locations[Math.floor(Math.random() * locations.length)];
       const endLocation = locations[Math.floor(Math.random() * locations.length)];
       
-      const session = new DriveSession({
+      const session = new DriveSess({
         email: 'test@example.com',
         distance,
         duration,
@@ -215,7 +142,7 @@ const addDemoData = async () => {
 
     // Save all sessions to the database
     console.log(`Saving ${demoSessions.length} demo sessions to the database...`);
-    await DriveSession.insertMany(demoSessions);
+    await DriveSess.insertMany(demoSessions);
     console.log('Demo data inserted successfully');
     
   } catch (error) {
@@ -228,4 +155,4 @@ const addDemoData = async () => {
 };
 
 // Run the function
-addDemoData();
+addDemoData(); 

@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { RequestHandler } from 'express';
 import userRoutes from './users';
 import authRoutes from './auth';
 import { authMiddleware } from '../middleware/auth';
@@ -8,8 +8,8 @@ const router = express.Router();
 // Public routes
 router.use('/auth', authRoutes);
 
-// Protected routes
-router.use('/users', authMiddleware, userRoutes);
+// Protected routes - Fix TypeScript error by casting authMiddleware to RequestHandler
+router.use('/users', authMiddleware as RequestHandler, userRoutes);
 
 // Root API endpoint
 router.get('/', (req, res) => {

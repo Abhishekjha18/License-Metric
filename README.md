@@ -5,9 +5,20 @@ An AI-enabled device that assesses driving performance in real-time using accele
 ## REPORT FILE : [LINK](https://docs.google.com/document/d/1naPfUTfguUxUR_f5OGCVoo8RjADD_p3180a-_BfYthU/edit?usp=sharing)
 
 ![License Metric Block Diagram](https://github.com/user-attachments/assets/74b2a78c-3378-4619-9593-f8ee45b92e18)
-![image](https://github.com/user-attachments/assets/99c0d0f2-b9d7-420f-8f2b-2d83351f88db)
+
+LOGIN PAGE
+![image](https://github.com/user-attachments/assets/74bf45c6-17e1-468b-b6cf-f4c240b806d5)
+
+
+MAIN DASHBOARD
 ![image](https://github.com/user-attachments/assets/3269fd2e-fcaf-4e6d-9f99-a89dd7b887aa)
+
+
+USER HISTORY OF PREVIOUS SESSIONS
 ![image](https://github.com/user-attachments/assets/781a9753-6a6a-46f2-9a4c-5a117f447211)
+
+
+ANALYTICS OF DRIVING BEHAVIOUR BASED ON ALL THE SESSIONS OF A USER
 ![image](https://github.com/user-attachments/assets/d12b051d-eeab-4eeb-83cf-38fa38cb587d)
 
 
@@ -102,4 +113,5 @@ An AI-enabled device that assesses driving performance in real-time using accele
 
 
 ## FUTURE WORK YET TO BE DONE
-- Better UI to be designed for custom website
+- Mobile Application according to below lofi
+

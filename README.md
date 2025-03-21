@@ -115,3 +115,11 @@ ANALYTICS OF DRIVING BEHAVIOUR BASED ON ALL THE SESSIONS OF A USER
 ## FUTURE WORK YET TO BE DONE
 - Mobile Application according to below lofi
 
+
+![image](https://github.com/user-attachments/assets/7af3f31a-674d-4a9a-bf38-b9542cf17d03)
+
+![image](https://github.com/user-attachments/assets/a59c1c2c-8a4a-42f6-80b6-98c8f1fb2d74)
+
+
+
+
